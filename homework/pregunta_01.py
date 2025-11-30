@@ -5,6 +5,7 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 librerias de pandas para resolver las preguntas.
 """
 
+import pandas as pd
 
 def pregunta_01():
     """
@@ -14,10 +15,5 @@ def pregunta_01():
     40
 
     """
-    suma = 0
-    with open("files/input/data.csv", "r") as file:
-            for line in file:
-                column = line.split("\t")
-                suma += int(column[1])
-
-    return suma
+    df = pd.read_csv("files/input/tbl0.tsv", sep="\t")
+    return df.shape[0]
